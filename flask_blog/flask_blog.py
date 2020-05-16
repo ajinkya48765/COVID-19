@@ -4,25 +4,12 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '550e71fa3b4a0a957b395cb0e2f8642f'
 
-posts= [
-    {
-        'author' : 'Shivangi',
-        'title' : 'blog',
-        'date' : 16
-    },
-    {
-        'author' : 'Ankit',
-        'title' : 'blog',
-        'date' : 13
-    }
-
-]
 @app.route('/')
 @app.route('/home',methods=['GET','POST'])
 def home():
     form = RForm()
     if form.validate_on_submit():
-        flash('Account created', category='success')
+        flash('Information Added', category='success')
         return redirect(url_for('home'))
     return render_template('home.html', title= 'Covid-19',form=form)
     
